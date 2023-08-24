@@ -29,6 +29,8 @@ func main() {
 	}
 	// 循环方法 range 写法二
 	for i, val := range ages4 {
-		fmt.Println(ages4[i], "===>", i, "-->", val)
+		//fmt.Println(ages4[i], "===>", i, "-->", val)
+		fmt.Printf("%d\t%d\n", i, val)
 	}
+
 }
