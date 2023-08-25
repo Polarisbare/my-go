@@ -63,7 +63,6 @@ func main() {
 			fmt.Println("男性年龄太大了无法判断")
 		}
 	} else {
-		// todo 编写女性的体脂率与体脂状态表
 		if age < 18 {
 			fmt.Println("女孩：未成年人无法判断")
 		} else if age >= 18 && age <= 39 {
@@ -155,7 +154,6 @@ func main() {
 				fmt.Println("男性年龄太大了无法判断")
 			}
 		} else {
-			// todo 编写女性的体脂率与体脂状态表
 			if age < 18 {
 				fmt.Println("女孩：未成年人无法判断")
 			} else if age >= 18 && age <= 39 {
