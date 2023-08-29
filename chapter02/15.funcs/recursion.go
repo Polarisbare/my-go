@@ -3,13 +3,13 @@ package main
 import "fmt"
 
 // 递归很浪费性能 尽量要用循环来代替
-func main() {
-	//	斐波那契数列计算核心
-	a := fibonacci(1)
-	fmt.Println(a)
-	fmt.Println("------------------")
-	guess(0, 100)
-}
+//func main() {
+//	//	斐波那契数列计算核心
+//	a := fibonacci(1)
+//	fmt.Println(a)
+//	fmt.Println("------------------")
+//	guess(0, 100)
+//}
 
 func fibonacci(n uint) uint {
 	if n == 0 {
