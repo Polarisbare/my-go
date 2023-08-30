@@ -11,7 +11,11 @@ var weight = 70
 // 代码作用域    赋值可以改变原值，重新声明，外面不会读取    取值只能从外到内   不能从内到外
 // 统一文件夹下可以调用函数
 func main() {
-	fmt.Println("------")
+	fmt.Println("111111------")
+
+	panicAndRecover()
+	time.Sleep(10 * time.Second)
+	fmt.Println("222222------")
 	//  沉睡
 	time.Sleep(10 * time.Second)
 	guess(0, 100)
