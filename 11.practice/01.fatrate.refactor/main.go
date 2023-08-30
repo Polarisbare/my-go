@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"learn.go/11.practice/01.fatrate.refactor/calc"
 )
 
 func init() {
@@ -128,8 +129,8 @@ func main() {
 }
 
 func mainFatRateBody() {
-	weight, tall, age, sexWeight, sex, name := getData()
-	fatRate := calcFatRate(weight, tall, age, sexWeight)
+	weight, tall, age, _, sex, name := getData()
+	fatRate := calcFatRate(weight, tall, age, sex)
 	if sex == "男" {
 		getMessage(age, fatRate, name, getMan)
 	} else {
@@ -213,10 +214,10 @@ func getMan(age int, fatRate float64, name string) {
 }
 
 // 计算函数
-func calcFatRate(weight float64, tall float64, age int, sexWeight int) float64 {
+func calcFatRate(weight float64, tall float64, age int, sex string) float64 {
 	//	计算体脂率
-	bmi := weight / (tall * tall)
-	fatRate := (1.2*bmi + 0.23*float64(age) - 5.4 - 10.8*float64(sexWeight)) / 100
+	bmi := calc.CalcBMI(tall, weight)
+	fatRate := calc.CalcFatRate(bmi, age, sex)
 	fmt.Println("您的体脂率是", fatRate)
 	return fatRate
 }
