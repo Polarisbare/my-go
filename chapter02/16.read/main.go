@@ -3,11 +3,13 @@ package main
 import (
 	"fmt"
 	"github.com/spf13/cobra" // 类型转换的包
+	learn_go_tools "learn.go.tools"
 	"learn.go/11.practice/01.fatrate.refactor/calc"
 )
 
 // 命令行定义
 func main() {
+	fmt.Println(learn_go_tools.Max(3, 5))
 	//	录入
 	var (
 		name   string
