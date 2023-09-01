@@ -130,7 +130,14 @@ func main() {
 
 func mainFatRateBody() {
 	weight, tall, age, _, sex, name := getData()
-	fatRate := calcFatRate(weight, tall, age, sex)
+	fatRate, err := calcFatRate(weight, tall, age, sex)
+	if err != nil {
+		fmt.Println("warning:计算体脂率出错，不能再继续", err)
+		return
+	}
+	if fatRate <= 0 {
+		panic("体脂率为零不对哦～")
+	}
 	if sex == "男" {
 		getMessage(age, fatRate, name, getMan)
 	} else {
@@ -214,12 +221,15 @@ func getMan(age int, fatRate float64, name string) {
 }
 
 // 计算函数
-func calcFatRate(weight float64, tall float64, age int, sex string) float64 {
+func calcFatRate(weight float64, tall float64, age int, sex string) (fatRate float64, err error) {
 	//	计算体脂率
-	bmi := calc.CalcBMI(tall, weight)
-	fatRate := calc.CalcFatRate(bmi, age, sex)
+	bmi, err := calc.CalcBMI(tall, weight)
+	if err != nil {
+		return 0, err
+	}
+	fatRate = calc.CalcFatRate(bmi, age, sex)
 	fmt.Println("您的体脂率是", fatRate)
-	return fatRate
+	return
 }
 
 // 判断是否继续
