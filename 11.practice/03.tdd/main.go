@@ -38,10 +38,6 @@ func getRand(name string) (rank int, fatRate float64) {
 
 			}
 		}
-
 	}
-	if name == "王强" {
-		return 1, 0.32
-	}
-	return
+	return 0, 0
 }
