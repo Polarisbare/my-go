@@ -17,4 +17,9 @@ func main() {
 	}
 	fmt.Println(c.Add())
 	fmt.Println("c.result=", c.result)
+
+	newC := NewCalculator{}
+	newC.left = 100
+	newC.right = 200
+	fmt.Println(newC.Add())
 }
