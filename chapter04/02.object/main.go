@@ -13,11 +13,11 @@ func main() {
 	//	组装做到很好，紧密联系的组装到一起：须具备 1、高内聚 2、低耦合
 	persons := []Person{
 		{
-			"小强",
-			"男",
-			1.7,
-			70,
-			35,
+			name:   "小强",
+			sex:    "男",
+			tall:   1.7,
+			weight: 70,
+			age:    35,
 		},
 	}
 	for _, item := range persons {
