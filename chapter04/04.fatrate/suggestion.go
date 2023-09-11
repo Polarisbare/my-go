@@ -7,7 +7,7 @@ func GetFatRateSuggestion() *fatRateSuggestion {
 			{ //	男
 
 				{ // 18-39
-
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
 				},
 				{ //
 
@@ -25,9 +25,11 @@ type fatRateSuggestion struct {
 	suggArr [][][]int
 }
 
-func (fatRateSuggestion) GetSuggestion(person *Person) string {
-	//todo
-	return ""
+func (s fatRateSuggestion) GetSuggestion(person *Person) string {
+	sexIndex := s.getIndexOfSex(person.sex)
+	ageIndex := s.getIndexOfAge(person.age)
+	suggIndex := s.suggArr[sexIndex][ageIndex][int(person.fatRate*100)]
+	return s.translateResult(suggIndex)
 }
 
 // 性别
